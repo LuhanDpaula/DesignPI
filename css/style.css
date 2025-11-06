@@ -7,17 +7,17 @@
 
 body {
   font-family: "Nunito", sans-serif;
-  background-color: #FAF6F0;
+  background-color: #eff5ef;
   color: #3C2F2F;
   line-height: 1.6;
 }
 
 /* ======== CORES ======== */
 :root {
-  --terracota-claro: #F3E9DC;
-  --terracota: #79804D;
-  --terracota-escuro: #3E482A;
-  --areia: #d2e8b9;
+  --terracota-claro: #dee9dc;
+  --terracota: #3E482A ;
+  --terracota-escuro: #2D2920;
+  --areia: #79804D;
   --texto: #2D2920;
   --branco: #ffffff;
 }
