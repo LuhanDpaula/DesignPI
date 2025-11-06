@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ERP Essense</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: var(--terracota-escuro);
+      color: var(--branco);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .sidebar a {
+      color: var(--branco);
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: var(--terracota);
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .logout-btn {
+      margin-top: auto;
+      background-color: #2D2920;
+      border: none;
+      color: var(--branco);
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .logout-btn:hover {
+      background-color: var(--terracota-claro);
+      color: var(--texto);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <h2>ERP Essense</h2>
+      <a href="agenda.html"><i class="fa-solid fa-calendar-check"></i> Agenda</a>
+      <a href="#"><i class="fa-solid fa-boxes-stacked"></i> Gestão de Estoque</a>
+      <a href="#"><i class="fa-solid fa-wallet"></i> Gestão Financeira</a>
+      <a href="#"><i class="fa-solid fa-handshake-angle"></i> Fidelização</a>
+      <button class="logout-btn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+    </div>
+
+    <div class="main-content">
+      <h1>Bem-vindo ao ERP Essense</h1>
+      <p>Selecione uma das opções no menu lateral para acessar as ferramentas do sistema.</p>
+    </div>
+  </div>
+
+  <script>
+    // Impede acesso sem login
+    const loggedUser = localStorage.getItem('loggedUser');
+    if (!loggedUser) {
+      window.location.href = 'index.html';
+    }
+
+    // Logout
+    document.getElementById('logoutBtn').onclick = () => {
+      localStorage.removeItem('loggedUser');
+      window.location.href = 'index.html';
+    };
+  </script>
+
+</body>
+</html>

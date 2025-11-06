@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Agenda Online - ERP Essense</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-color: #79804D;
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 15px;
+      display: block;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidebar a:hover {
+      background: #3E482A;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 270px;
+      padding: 20px;
+    }
+
+    .agenda-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .agenda-buttons button {
+      margin-right: 5px;
+    }
+
+    .logout-btn {
+      margin-top: auto;
+      background-color: #2D2920;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .logout-btn:hover {
+      background-color: var(--terracota-claro);
+      color: var(--texto);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>ERP Essense</h2>
+    <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+    <a href="agenda.html"><i class="fa-solid fa-calendar-check"></i> Agenda Online</a>
+    <a href="#"><i class="fa-solid fa-boxes-stacked"></i> Gestão de Estoque</a>
+    <a href="#"><i class="fa-solid fa-wallet"></i> Gestão Financeira</a>
+    <a href="#"><i class="fa-solid fa-handshake-angle"></i> Fidelização</a>
+    <button class="logout-btn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+  </div>
+
+  <div class="main-content">
+    <h1>Agenda Online</h1>
+    <form id="appointmentForm">
+      <input type="text" id="clientName" placeholder="Nome do cliente" required>
+      <input type="date" id="appointmentDate" required>
+      <input type="time" id="appointmentTime" required>
+      <input type="text" id="esthetician" placeholder="Esteticista" required>
+      <button type="submit">Marcar Consulta</button>
+    </form>
+    <div id="appointmentList"></div>
+  </div>
+
+  <script>
+    // Impede acesso sem login
+    if (!localStorage.getItem('loggedUser')) {
+      window.location.href = 'index.html';
+    }
+
+    const form = document.getElementById("appointmentForm");
+    const list = document.getElementById("appointmentList");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+
+    function renderAppointments() {
+      list.innerHTML = "";
+      if (appointments.length === 0) {
+        list.innerHTML = "<p>Nenhuma consulta marcada.</p>";
+      } else {
+        appointments.forEach((appt, index) => {
+          const item = document.createElement("div");
+          item.classList.add("agenda-item");
+          item.innerHTML = `
+            <p><strong>Cliente:</strong> ${appt.client}</p>
+            <p><strong>Data:</strong> ${appt.date}</p>
+            <p><strong>Hora:</strong> ${appt.time}</p>
+            <p><strong>Esteticista:</strong> ${appt.esthetician}</p>
+            <div class="agenda-buttons">
+              <button onclick="editAppointment(${index})">Alterar</button>
+              <button onclick="deleteAppointment(${index})">Cancelar</button>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      }
+    }
+
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const appt = {
+        client: clientName.value,
+        date: appointmentDate.value,
+        time: appointmentTime.value,
+        esthetician: esthetician.value
+      };
+      appointments.push(appt);
+      localStorage.setItem("appointments", JSON.stringify(appointments));
+      renderAppointments();
+      form.reset();
+    };
+
+    function deleteAppointment(index) {
+      if (confirm("Deseja realmente cancelar esta consulta?")) {
+        appointments.splice(index, 1);
+        localStorage.setItem("appointments", JSON.stringify(appointments));
+        renderAppointments();
+      }
+    }
+
+    function editAppointment(index) {
+      const appt = appointments[index];
+      clientName.value = appt.client;
+      appointmentDate.value = appt.date;
+      appointmentTime.value = appt.time;
+      esthetician.value = appt.esthetician;
+      appointments.splice(index, 1);
+      localStorage.setItem("appointments", JSON.stringify(appointments));
+      renderAppointments();
+    }
+
+    logoutBtn.onclick = () => {
+      localStorage.removeItem("loggedUser");
+      window.location.href = "index.html";
+    };
+
+    renderAppointments();
+  </script>
+</body>
+</html>
+

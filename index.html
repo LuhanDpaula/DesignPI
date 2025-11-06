@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ERP Essense - Gestão para Clínicas de Estética</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- MENU -->
+  <header class="menu-bg">
+    <div class="menu">
+      <div class="menu-logo">
+        <a href="#">ERP Essense</a>
+      </div>
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#" id="loginBtn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- INTRODUÇÃO -->
+  <h1 class="introducao">Gerencie sua clínica com equilíbrio e leveza</h1>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-info">
+      <h1>Sobre o ERP Essense</h1>
+      <p>Desenvolvido para clínicas de estética que buscam eficiência e harmonia na gestão. Nosso ERP une tecnologia, beleza e bem-estar em uma plataforma intuitiva e moderna.</p>
+      <p>Automatize tarefas administrativas, acompanhe finanças, estoque e agendamentos de forma prática e elegante.</p>
+    </div>
+    <div class="sobre-img">
+      <img src="img/logo.png" alt="Painel de gestão do ERP">
+    </div>
+  </section>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="produtos" id="funcionalidades">
+    <h1>Funcionalidades</h1>
+    <div class="produtos-container">
+      <div class="produtos-item">
+        <i class="fa-solid fa-calendar-check fa-2x"></i>
+        <h2>Agenda Online</h2>
+        <p>Gerencie horários e lembretes com elegância e precisão, otimizando o tempo da equipe e dos clientes.</p>
+      </div>
+
+      <div class="produtos-item">
+        <i class="fa-solid fa-wallet fa-2x"></i>
+        <h2>Gestão Financeira</h2>
+        <p>Controle receitas e despesas com relatórios claros e personalizáveis, trazendo segurança à gestão.</p>
+      </div>
+
+      <div class="produtos-item">
+        <i class="fa-solid fa-boxes-stacked fa-2x"></i>
+        <h2>Gestão de Estoque</h2>
+        <p>Monitore insumos, produtos e reposições com alertas automáticos e relatórios simplificados.</p>
+      </div>
+
+      <div class="produtos-item">
+        <i class="fa-solid fa-handshake-angle fa-2x"></i>
+        <h2>Fidelização de Clientes</h2>
+        <p>Crie laços duradouros com seus clientes, enviando promoções e acompanhando o engajamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section class="produtos" id="planos">
+    <h1>Nossos Planos</h1>
+    <div class="preco-container">
+      <div class="preco-item">
+        <h2>Básico</h2>
+        <span><sup>R$</sup>59/mês</span>
+        <ul>
+          <li>Agendamento Online</li>
+          <li>Controle Financeiro</li>
+          <li>Gestão de Estoque Básica</li>
+        </ul>
+        <a href="#">Assinar</a>
+      </div>
+
+      <div class="preco-item destaque">
+        <h2>Profissional</h2>
+        <span><sup>R$</sup>119/mês</span>
+        <ul>
+          <li>Recursos do Básico</li>
+          <li>Relatórios Avançados</li>
+          <li>Fidelização de Clientes</li>
+          <li>Suporte Prioritário</li>
+        </ul>
+        <a href="#">Assinar</a>
+      </div>
+
+      <div class="preco-item">
+        <h2>Premium</h2>
+        <span><sup>R$</sup>199/mês</span>
+        <ul>
+          <li>Tudo do Profissional</li>
+          <li>Integrações Externas</li>
+          <li>Relatórios Personalizados</li>
+          <li>Gestão Completa</li>
+        </ul>
+        <a href="#">Assinar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="newsletter" id="contato">
+    <div class="newsletter-info">
+      <h1>Fale conosco</h1>
+      <p>Descubra como o ERP Essense pode elevar o equilíbrio e a eficiência da sua clínica.</p>
+    </div>
+    <form class="newsletter-form">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>ERP Essense - 2025</p>
+    <p>Ter / Sex - 09:00 às 17:00 | Rua da Tranquilidade, 888 - SP | <a href="tel:+5514999999999">+55 14 99999-9999</a></p>
+  </footer>
+
+  <!-- MODAL LOGIN / CADASTRO -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <!-- Tela de Login -->
+      <div id="loginForm">
+        <h2>Login</h2>
+        <form>
+          <input type="email" placeholder="E-mail" required>
+          <input type="password" placeholder="Senha" required>
+          <button type="submit">Entrar</button>
+        </form>
+        <p>Ainda não tem conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+      </div>
+
+      <!-- Tela de Cadastro -->
+      <div id="registerForm" style="display:none;">
+        <h2>Cadastre-se</h2>
+        <form>
+          <input type="text" placeholder="Nome completo" required>
+          <input type="email" placeholder="E-mail" required>
+          <input type="password" placeholder="Senha" required>
+          <button type="submit" id="saveRegister">Cadastrar</button>
+        </form>
+        <p>Já tem conta? <a href="#" id="showLogin">Voltar ao login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+<script>
+  const loginBtn = document.getElementById('loginBtn');
+  const modal = document.getElementById('authModal');
+  const showRegister = document.getElementById('showRegister');
+  const showLogin = document.getElementById('showLogin');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const saveRegister = document.getElementById('saveRegister');
+
+  // Abre modal
+  loginBtn.onclick = () => modal.style.display = 'flex';
+
+  // Alterna entre login e cadastro
+  showRegister.onclick = () => {
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'block';
+  };
+  showLogin.onclick = () => {
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'block';
+  };
+
+  // --- Cadastro ---
+  saveRegister.onclick = (e) => {
+    e.preventDefault();
+    const name = registerForm.querySelector('input[placeholder="Nome completo"]').value;
+    const email = registerForm.querySelector('input[placeholder="E-mail"]').value;
+    const password = registerForm.querySelector('input[placeholder="Senha"]').value;
+
+    if (!name || !email || !password) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    // Salva usuário no localStorage
+    const user = { name, email, password };
+    localStorage.setItem('user', JSON.stringify(user));
+    alert("Cadastro realizado com sucesso!");
+
+    // Volta para login
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'block';
+  };
+
+  // --- Login ---
+loginForm.querySelector('form').onsubmit = (e) => {
+    e.preventDefault();
+    const email = loginForm.querySelector('input[type="email"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user && user.email === email && user.password === password) {
+        localStorage.setItem('loggedUser', email);
+        window.location.href = 'dashboard.html'; // redireciona para o painel
+    } else {
+        alert('E-mail ou senha incorretos!');
+    }
+};
+
+// Fecha modal clicando fora
+window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+};
+
+</script>
+
+</body>
+</html>
